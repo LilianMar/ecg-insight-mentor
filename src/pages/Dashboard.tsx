@@ -1,6 +1,7 @@
 import { Heart, Upload, Brain, BarChart3, BookOpen, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import logoTrainECG from "@/assets/logoTrainECG.png";
 
 const Dashboard = () => {
   const features = [
@@ -48,8 +49,8 @@ const Dashboard = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-medical rounded-lg flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-teal">
+                <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
               </div>
               <h1 className="text-2xl font-bold text-foreground">TrainECG</h1>
             </div>
@@ -81,15 +82,15 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {features.map((feature, index) => (
             <Link key={index} to={feature.path}>
-              <Card className="medical-card-interactive group">
+              <Card className="medical-card-feature group">
                 <CardContent className="p-6">
-                  <div className={`w-12 h-12 ${feature.gradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}>
-                    <feature.icon className="w-6 h-6 text-white" />
+                  <div className={`w-14 h-14 ${feature.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-teal`}>
+                    <feature.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>

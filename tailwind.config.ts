@@ -59,13 +59,20 @@ export default {
       },
       backgroundImage: {
         "gradient-medical": "var(--gradient-primary)",
+        "gradient-primary": "var(--gradient-primary)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-secondary": "var(--gradient-secondary)",
+        "gradient-card": "var(--gradient-card)",
+        "gradient-teal": "var(--gradient-teal)",
       },
       boxShadow: {
         "medical": "var(--shadow-medical)",
         "card": "var(--shadow-card)",
         "elevated": "var(--shadow-elevated)",
+        "teal": "var(--shadow-teal)",
+      },
+      scale: {
+        "102": "1.02",
       },
       borderRadius: {
         lg: "var(--radius)",
