@@ -1,6 +1,7 @@
 import { Heart, Upload, Brain, BarChart3, BookOpen, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import logoTrainECG from "@/assets/logoTrainECG-heart.png";
 
 const Dashboard = () => {
@@ -44,85 +45,127 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-gradient-to-br from-primary via-primary/90 to-accent border-b border-white/10 backdrop-blur-sm">
-        <div className="container mx-auto px-8 py-6">
+      {/* Hero Header Section */}
+      <section className="bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
+        
+        {/* Navigation */}
+        <nav className="relative z-10 container mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl p-2 border-2 border-white/20">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl p-2">
                 <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
               </div>
-              <h1 className="text-3xl font-bold text-white">TrainECG</h1>
+              <span className="text-xl font-bold text-white">TrainECG</span>
             </div>
-            <nav className="flex items-center space-x-6">
+            <div className="flex items-center space-x-6">
               <Link to="/profile" className="text-white/90 hover:text-white transition-colors">
                 Perfil
               </Link>
               <button className="text-white/90 hover:text-white transition-colors">
                 Cerrar Sesión
               </button>
-            </nav>
+            </div>
           </div>
+        </nav>
+
+        {/* Hero Content */}
+        <div className="relative z-10 text-center py-20 px-8">
+          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl p-3">
+            <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Mejora tus habilidades en ECG
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Entrena con IA avanzada para interpretar electrocardiogramas y perfecciona tu diagnóstico médico
+          </p>
+          <Button className="bg-white text-primary hover:bg-white/90 px-8 py-3 text-lg font-medium">
+            Comenzar Entrenamiento
+          </Button>
         </div>
-      </header>
+      </section>
 
       {/* Main Content */}
-      <main className="container mx-auto px-8 py-10 max-w-7xl">
-        {/* Welcome Section */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-foreground mb-2">
-            Bienvenido a TrainECG
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Mejora tus habilidades en interpretación de electrocardiogramas con IA avanzada
-          </p>
-        </div>
+      <main className="bg-gray-50/30 py-16">
+        <div className="container mx-auto px-8 max-w-6xl">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Descubre TrainECG
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Transforma tu conocimiento médico con tecnología de vanguardia
+            </p>
+          </div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 px-4">
-          {features.map((feature, index) => (
-            <Link key={index} to={feature.path}>
-              <Card className="medical-card-feature group">
-                <CardContent className="p-6">
-                  <div className={`w-14 h-14 ${feature.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-teal`}>
-                    <feature.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+          {/* Feature Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {features.slice(0, 3).map((feature, index) => (
+              <Link key={index} to={feature.path}>
+                <Card className="medical-card-feature group h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-teal">
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
-            <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-white mb-2">24</div>
-              <p className="text-white/90">ECGs Analizados</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
-            <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-white mb-2">87%</div>
-              <p className="text-white/90">Precisión Promedio</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
-            <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-white mb-2">12</div>
-              <p className="text-white/90">Días de Racha</p>
-            </CardContent>
-          </Card>
+          {/* Additional Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+            {features.slice(3).map((feature, index) => (
+              <Link key={index + 3} to={feature.path}>
+                <Card className="medical-card-feature group h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-teal">
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
+
+      {/* Stats Section */}
+      <section className="bg-gradient-hero py-16">
+        <div className="container mx-auto px-8 max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">24</div>
+              <p className="text-white/90 text-sm">ECGs Analizados</p>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">87%</div>
+              <p className="text-white/90 text-sm">Precisión Promedio</p>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">10K+</div>
+              <p className="text-white/90 text-sm">Casos Estudiados</p>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">4.9★</div>
+              <p className="text-white/90 text-sm">Valoración</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
