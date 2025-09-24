@@ -1,7 +1,7 @@
 import { Heart, Upload, Brain, BarChart3, BookOpen, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import logoTrainECG from "@/assets/logoTrainECG.png";
+import logoTrainECG from "@/assets/logoTrainECG-heart.png";
 
 const Dashboard = () => {
   const features = [
@@ -45,20 +45,20 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-r from-card to-secondary/30 border-b border-border/50 backdrop-blur-sm">
+      <header className="bg-gradient-to-br from-primary via-primary/90 to-accent border-b border-white/10 backdrop-blur-sm">
         <div className="container mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-teal p-2">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl p-2 border-2 border-white/20">
                 <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
               </div>
-              <h1 className="text-3xl font-bold text-foreground">TrainECG</h1>
+              <h1 className="text-3xl font-bold text-white">TrainECG</h1>
             </div>
             <nav className="flex items-center space-x-6">
-              <Link to="/profile" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/profile" className="text-white/90 hover:text-white transition-colors">
                 Perfil
               </Link>
-              <button className="text-muted-foreground hover:text-primary transition-colors">
+              <button className="text-white/90 hover:text-white transition-colors">
                 Cerrar Sesión
               </button>
             </nav>
@@ -101,24 +101,24 @@ const Dashboard = () => {
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          <Card className="medical-card">
+          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
             <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">24</div>
-              <p className="text-muted-foreground">ECGs Analizados</p>
+              <div className="text-3xl font-bold text-white mb-2">24</div>
+              <p className="text-white/90">ECGs Analizados</p>
             </CardContent>
           </Card>
           
-          <Card className="medical-card">
+          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
             <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-success mb-2">87%</div>
-              <p className="text-muted-foreground">Precisión Promedio</p>
+              <div className="text-3xl font-bold text-white mb-2">87%</div>
+              <p className="text-white/90">Precisión Promedio</p>
             </CardContent>
           </Card>
           
-          <Card className="medical-card">
+          <Card className="bg-gradient-to-br from-primary via-primary/90 to-accent text-white border-white/10 shadow-xl">
             <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-warning mb-2">12</div>
-              <p className="text-muted-foreground">Días de Racha</p>
+              <div className="text-3xl font-bold text-white mb-2">12</div>
+              <p className="text-white/90">Días de Racha</p>
             </CardContent>
           </Card>
         </div>
