@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import logoTrainECG from "@/assets/logoTrainECG-heart.png";
+import logo1 from "@/assets/logo1.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ const Login = () => {
         {/* Logo and Title */}
         <div className="text-center mb-8">
           <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-teal p-4">
-            <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
+            <img src={logo1} alt="TrainECG Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">TrainECG</h1>
           <p className="text-white/80">Plataforma de aprendizaje médico</p>

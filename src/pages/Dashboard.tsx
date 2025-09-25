@@ -2,7 +2,7 @@ import { Heart, Upload, Brain, BarChart3, BookOpen, Target } from "lucide-react"
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import logoTrainECG from "@/assets/logoTrainECG-heart.png";
+import logo2 from "@/assets/logo2.png";
 
 const Dashboard = () => {
   const features = [
@@ -65,7 +65,7 @@ const Dashboard = () => {
         {/* Compact Hero Content */}
         <div className="relative z-10 text-center px-8 max-w-4xl mx-auto pt-8">
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl p-2 mx-auto mb-6">
-            <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
+            <img src={logo2} alt="TrainECG Logo" className="w-full h-full object-contain" />
           </div>
           
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
