@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import logoTrainECG from "@/assets/logoTrainECG.png";
+import logoTrainECG from "@/assets/logoTrainECG-heart.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ const Login = () => {
       <div className="w-full max-w-md">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-teal p-3">
+          <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-teal p-4">
             <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">TrainECG</h1>

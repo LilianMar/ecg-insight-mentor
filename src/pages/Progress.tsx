@@ -40,16 +40,17 @@ const Progress = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b border-border">
-        <div className="container mx-auto px-6 py-4">
+      <header className="bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
+        <div className="relative z-10 container mx-auto px-6 py-4">
           <div className="flex items-center space-x-4">
             <Link to="/dashboard">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-foreground">Mi Progreso</h1>
+            <h1 className="text-2xl font-bold text-white">Mi Progreso</h1>
           </div>
         </div>
       </header>
@@ -228,6 +229,35 @@ const Progress = () => {
             </CardContent>
           </Card>
         </div>
+
+        {/* Personalized Recommendations */}
+        <Card className="medical-card mt-8">
+          <CardHeader>
+            <CardTitle>Recomendaciones Personalizadas</CardTitle>
+            <p className="text-sm text-muted-foreground">Basado en tu rendimiento actual</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Área de Mejora */}
+              <div className="p-6 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Área de Mejora</h4>
+                <p className="text-sm text-blue-800 dark:text-blue-200">
+                  Practica más casos de <strong>Flutter Auricular (67% precisión)</strong>. Te recomendamos revisar las 
+                  características distintivas de las ondas F.
+                </p>
+              </div>
+              
+              {/* Fortaleza */}
+              <div className="p-6 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">Fortaleza</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">
+                  Excelente rendimiento en <strong>Ritmo Sinusal Normal (90% precisión)</strong>. ¡Sigue así y ayuda a 
+                  otros estudiantes!
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Weekly Goal */}
         <Card className="medical-card mt-8">

@@ -89,16 +89,17 @@ const ClassifyECG = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b border-border">
-        <div className="container mx-auto px-6 py-4">
+      <header className="bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
+        <div className="relative z-10 container mx-auto px-6 py-4">
           <div className="flex items-center space-x-4">
             <Link to="/dashboard">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-foreground">Clasificación de ECG</h1>
+            <h1 className="text-2xl font-bold text-white">Clasificación de ECG</h1>
           </div>
         </div>
       </header>
