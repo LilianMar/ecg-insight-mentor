@@ -46,46 +46,35 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Header Section */}
-      <section className="bg-gradient-hero relative overflow-hidden">
+      <section className="bg-gradient-hero relative overflow-hidden py-12">
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
         
-        {/* Navigation */}
-        <nav className="relative z-10 container mx-auto px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl p-2">
-                <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-xl font-bold text-white">TrainECG</span>
+        {/* Compact Hero Content */}
+        <div className="relative z-10 text-center px-8 max-w-4xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex-1"></div>
+            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl p-2">
+              <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="flex items-center space-x-6">
-              <Link to="/profile" className="text-white/90 hover:text-white transition-colors">
+            <div className="flex-1 flex justify-end space-x-6">
+              <Link to="/profile" className="text-white/90 hover:text-white transition-colors text-sm">
                 Perfil
               </Link>
               <button 
                 onClick={() => window.location.href = '/login'} 
-                className="text-white/90 hover:text-white transition-colors"
+                className="text-white/90 hover:text-white transition-colors text-sm"
               >
                 Cerrar Sesión
               </button>
             </div>
           </div>
-        </nav>
-
-        {/* Hero Content */}
-        <div className="relative z-10 text-center py-20 px-8">
-          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl p-3">
-            <img src={logoTrainECG} alt="TrainECG Logo" className="w-full h-full object-contain" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Mejora tus habilidades en ECG
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Entrena con IA avanzada para interpretar electrocardiogramas y perfecciona tu diagnóstico médico
           </p>
-          <Button className="bg-white text-primary hover:bg-white/90 px-8 py-3 text-lg font-medium">
-            Comenzar Entrenamiento
-          </Button>
         </div>
       </section>
 
