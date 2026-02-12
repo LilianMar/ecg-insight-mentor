@@ -5,6 +5,3 @@ services:
       - "9000:80"
     restart: unless-stopped
 
-
-#version 2
-# docker compose up   
