@@ -1,7 +1,25 @@
 services:
   web:
-    build: .
     ports:
       - "9000:80"
+    restart: unless-stopped
+    depends_on:
+      - api
+    build:
+      context: .
+      args:
+        VITE_API_URL: /api
+
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      JWT_SECRET: "change-me-in-prod"
+      ACCESS_TOKEN_EXPIRE_MINUTES: "60"
+      DB_PATH: "/app/data/app.db"
+    volumes:
+      - ./backend/data:/app/data
     restart: unless-stopped
 

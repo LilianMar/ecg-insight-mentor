@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import logo1 from "@/assets/logo1.png";
+import { apiRequest, ApiError } from "@/lib/api";
+import { setToken } from "@/lib/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,24 +20,30 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Simulate login process
-    setTimeout(() => {
-      if (email && password) {
-        toast({
-          title: "Bienvenido a TrainECG",
-          description: "Has iniciado sesión exitosamente.",
-        });
-        navigate("/dashboard");
-      } else {
-        toast({
-          title: "Error de autenticación",
-          description: "Por favor, verifica tus credenciales.",
-          variant: "destructive",
-        });
-      }
+    try {
+      const response = await apiRequest<{ access_token: string; token_type: string }>(
+        "/auth/login",
+        {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      setToken(response.access_token);
+      toast({
+        title: "Bienvenido a TrainECG",
+        description: "Has iniciado sesión exitosamente.",
+      });
+      navigate("/dashboard");
+    } catch (error) {
+      const message = error instanceof ApiError ? error.message : "No se pudo iniciar sesión";
+      toast({
+        title: "Error de autenticación",
+        description: message,
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (

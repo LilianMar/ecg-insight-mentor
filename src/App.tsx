@@ -11,6 +11,7 @@ import PracticeMode from "./pages/PracticeMode";
 import Progress from "./pages/Progress";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import RequireAuth from "./components/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -24,14 +25,63 @@ const App = () => (
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/classify" element={<ClassifyECG />} />
-          <Route path="/practice" element={<PracticeMode />} />
-          <Route path="/progress" element={<Progress />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/classify"
+            element={
+              <RequireAuth>
+                <ClassifyECG />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/practice"
+            element={
+              <RequireAuth>
+                <PracticeMode />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/progress"
+            element={
+              <RequireAuth>
+                <Progress />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+            }
+          />
           {/* Placeholder routes */}
-          <Route path="/test" element={<Dashboard />} />
-          <Route path="/library" element={<Dashboard />} />
+          <Route
+            path="/test"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>

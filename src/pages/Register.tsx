@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest, ApiError } from "@/lib/api";
+import { setToken } from "@/lib/auth";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -51,15 +53,36 @@ const Register = () => {
 
     setIsLoading(true);
 
-    // Simulate registration process
-    setTimeout(() => {
+    try {
+      const response = await apiRequest<{ access_token: string; token_type: string }>(
+        "/auth/register",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            user_type: formData.userType,
+            institution: formData.institution || null,
+          }),
+        }
+      );
+      setToken(response.access_token);
       toast({
         title: "¡Registro exitoso!",
         description: "Tu cuenta ha sido creada. Bienvenido a TrainECG.",
       });
       navigate("/dashboard");
+    } catch (error) {
+      const message = error instanceof ApiError ? error.message : "No se pudo completar el registro";
+      toast({
+        title: "Error de registro",
+        description: message,
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   return (

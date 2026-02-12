@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import logo2 from "@/assets/logo2.png";
+import { clearToken } from "@/lib/auth";
 
 const Dashboard = () => {
   const features = [
@@ -54,8 +55,11 @@ const Dashboard = () => {
           <Link to="/profile" className="text-white/90 hover:text-white transition-colors text-sm">
             Perfil
           </Link>
-          <button 
-            onClick={() => window.location.href = '/login'} 
+          <button
+            onClick={() => {
+              clearToken();
+              window.location.href = "/login";
+            }}
             className="text-white/90 hover:text-white transition-colors text-sm"
           >
             Cerrar Sesión
